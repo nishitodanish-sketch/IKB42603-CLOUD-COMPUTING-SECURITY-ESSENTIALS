@@ -1,3 +1,4 @@
+<img width="617" height="57" alt="1 docker install" src="https://github.com/user-attachments/assets/f0b04daa-0768-476c-b38d-10ef454c2ea2" />
 # Lab 0: Environment Setup Report
 
 **Course:** IKB42603 Cloud Computing Security Essentials  
@@ -49,8 +50,8 @@ sudo docker run --rm hello-world
   ```
 
 #### Evidence Screenshots
-![Docker Version Verification](1.docker%20install.png)  
-![Docker Hello-World Verification](1.docker%20hello.png)
+ <img width="617" height="57" alt="1 docker install" src="https://github.com/user-attachments/assets/398571cb-a45e-44ac-a641-bd06a3614693" />
+<img width="690" height="395" alt="1 docker hello" src="https://github.com/user-attachments/assets/58cca8bd-49d9-4b28-b8e1-468d01f76075" />
 
 ---
 
@@ -69,7 +70,7 @@ aws-cli/2.36.9 Python/3.14.6 Linux/5.15.0-kali3-amd64 exe/x86_64.kali.2022
 ```
 
 #### Evidence Screenshot
-![AWS CLI Version Verification](2.aws_cli.png)
+<img width="617" height="70" alt="2 aws_cli" src="https://github.com/user-attachments/assets/013746f5-71d9-48ec-9354-d3816008399e" />
 
 ---
 
@@ -95,8 +96,8 @@ kubectl version --client
   ```
 
 #### Evidence Screenshots
-![kind Version Verification](03.kind%20version.png)  
-![kubectl Client Version Verification](3.kind_client.png)
+<img width="186" height="55" alt="03 kind version" src="https://github.com/user-attachments/assets/cb6f28de-af90-4977-85bd-98d802d193a4" />
+<img width="252" height="75" alt="3 kind_client" src="https://github.com/user-attachments/assets/84eb21f7-c994-431c-863b-0893bfe473a3" />
 
 ---
 
@@ -122,8 +123,8 @@ oathtool --version
   ```
 
 #### Evidence Screenshots
-![OpenSSL Version Verification](04.openSLL.png)  
-![oathtool Version Verification](4.oathtool.png)
+<img width="236" height="55" alt="04 openSLL" src="https://github.com/user-attachments/assets/32453010-7c55-4534-b7b1-cbc1413a24d0" />
+<img width="655" height="155" alt="4 oathtool" src="https://github.com/user-attachments/assets/782f297b-aba9-47af-8ab4-6db9501f1f29" />
 
 ---
 
@@ -137,7 +138,7 @@ To launch LocalStack in detached mode mapping port 4566:
 sudo docker run -d --name localstack -p 4566:4566 localstack/localstack
 ```
 
-![LocalStack Container Start](5.%20local_stack.png)
+<img width="712" height="447" alt="5  local_stack" src="https://github.com/user-attachments/assets/8d1d1c34-167b-490d-b484-810c101dca34" />
 
 #### 5.2 Container Status Check
 Verify that the container is up and running:
@@ -148,8 +149,7 @@ sudo docker ps
 CONTAINER ID   IMAGE                      COMMAND                  CREATED        STATUS                    PORTS
 fea1a2bb2bd9   localstack/localstack:3.8.1   "docker-entrypoint.sh"   9 seconds ago  Up 8 seconds (health: starting)   0.0.0.0:4566->4566/tcp, :::4566->4566/tcp   localstack
 ```
-
-![LocalStack Docker PS Verification](6.%20health.png)
+<img width="940" height="117" alt="6  health" src="https://github.com/user-attachments/assets/5ce99e4c-522f-4a09-8ab8-069d78ac8494" />
 
 #### 5.3 LocalStack Health Endpoint Check
 Verify health status of local AWS services:
@@ -168,8 +168,7 @@ curl http://localhost:4566/_localstack/health
   "version": "3.8.1"
 }
 ```
-
-![LocalStack Health Endpoint Check](6.%20health%20best%20.png)
+<img width="941" height="177" alt="6  health best " src="https://github.com/user-attachments/assets/af007c5a-511e-463a-a31f-2a63a1ee2ca3" />
 
 #### 5.4 Container Lifecycle Management (Stop, Start, Remove)
 Demonstrating standard lifecycle operations for LocalStack:
@@ -183,8 +182,7 @@ sudo docker start localstack
 # Force Remove LocalStack
 sudo docker rm -f localstack
 ```
-
-![LocalStack Lifecycle Management](6.%20stopp_start%20.png)
+<img width="917" height="422" alt="6  stopp_start " src="https://github.com/user-attachments/assets/01b92d9c-2489-4a9f-885e-dc76e8ae856b" />
 
 ---
 
@@ -206,8 +204,8 @@ Creating cluster "ccse" ...
  ✓ Installing StorageClass 💾
 Set kubectl context to "kind-ccse"
 ```
+<img width="732" height="222" alt="7  kubernete" src="https://github.com/user-attachments/assets/4ca7eeff-cf5c-4fa5-9360-97bfa44e6b0b" />
 
-![kind Cluster Creation](7.%20kubernete.png)
 
 #### 6.2 Checking Cluster Info
 ```bash
@@ -217,8 +215,7 @@ sudo kubectl cluster-info --context kind-ccse
 Kubernetes control plane is running at https://127.0.0.1:45189
 CoreDNS is running at https://127.0.0.1:45189/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
 ```
-
-![kubectl Cluster Info Verification](7.kubectl.png)
+<img width="842" height="107" alt="7 kubectl" src="https://github.com/user-attachments/assets/955df1cd-c02e-47f6-9544-4e730022e19a" />
 
 #### 6.3 Checking Cluster Nodes
 ```bash
@@ -228,8 +225,7 @@ sudo kubectl get nodes
 NAME                 STATUS   ROLES           AGE     VERSION
 ccse-control-plane   Ready    control-plane   4m6s    v1.30.0
 ```
-
-![kubectl Get Nodes Verification](7.get%20node.png)
+<img width="502" height="72" alt="7 get node" src="https://github.com/user-attachments/assets/4840ed53-bcbd-4845-b780-00c0fa3a16dd" />
 
 #### 6.4 Deleting Cluster
 ```bash
@@ -239,8 +235,7 @@ sudo kind delete cluster --name ccse
 Deleting cluster "ccse" ...
 Deleted nodes: ["ccse-control-plane"]
 ```
-
-![kind Cluster Deletion](7,%20delte.png)
+<img width="372" height="77" alt="7, delte" src="https://github.com/user-attachments/assets/67d4b2b2-c145-4dc9-8764-ef454345a627" />
 
 ---
 
@@ -254,8 +249,7 @@ sudo aws configure set aws_access_key_id test
 sudo aws configure set aws_secret_access_key test
 sudo aws configure set region us-east-1
 ```
-
-![AWS CLI Dummy Configuration](8.aws%20_test.png)
+<img width="482" height="140" alt="8 aws _test" src="https://github.com/user-attachments/assets/1cf575b1-85df-4620-b0cf-1936140d3389" />
 
 #### 7.2 Setting LocalStack Endpoint Variable
 To simplify requests, store the LocalStack endpoint in the `EP` environment variable:
@@ -263,8 +257,7 @@ To simplify requests, store the LocalStack endpoint in the `EP` environment vari
 EP="--endpoint-url=http://localhost:4566"
 echo $EP
 ```
-
-![LocalStack Endpoint Environment Variable](8.endpoint%20test%20.png)
+<img width="407" height="115" alt="8 endpoint test " src="https://github.com/user-attachments/assets/e43cd82f-e031-41e6-8263-661a10ed2ca5" />
 
 #### 7.3 Verifying LocalStack STS Communication
 Test STS caller identity to confirm AWS CLI communicates with LocalStack:
@@ -278,8 +271,7 @@ aws $EP sts get-caller-identity
     "Arn": "arn:aws:iam::000000000000:root"
 }
 ```
-
-![AWS CLI Get Caller Identity Verification](8.cli%20caller%20.png)
+<img width="401" height="131" alt="8 cli caller " src="https://github.com/user-attachments/assets/ff088bb8-20fe-4c08-998b-bc8614211654" />
 
 ---
 
