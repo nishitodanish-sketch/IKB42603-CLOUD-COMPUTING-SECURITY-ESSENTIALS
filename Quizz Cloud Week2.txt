@@ -1,0 +1,297 @@
+Which service model requires customers to manage the operating system?
+*
+1 point
+SaaS
+IaaS
+PaaS
+FaaS
+
+-IaaS
+
+Docker is mainly used to:
+*
+1 point
+Manage IAM
+Create databases
+Create AWS accounts
+Run containers
+
+-Run containers
+
+Cloud computing refers to:
+*
+1 point
+Buying more physical servers
+Installing software locally
+Running applications only on Windows
+Delivering computing resources over the Internet
+
+-Delivering computing resources over the Internet
+
+Which IAM component contains permissions?
+*
+1 point
+IAM Group
+IAM Role
+IAM User
+IAM Policy
+
+-IAM Policy
+
+In the ARN arn:aws:s3:::my-bucket, which component represents the AWS service?
+*
+1 point
+aws
+s3
+arn
+my-bucket
+
+-s3
+
+Which tool creates a local Kubernetes cluster?
+*
+1 point
+LocalStack
+Docker Desktop
+kind
+Amazon EC2
+
+-kind
+
+Which security principle gives users only the permissions required to perform their tasks?
+*
+1 point
+Zero Trust
+Defense in Depth
+Principle of Least Privilege
+Confidentiality
+
+Which account should never have access keys created for routine use?
+*
+1 point
+Root User
+Analyst User
+IAM Role
+IAM User
+
+-Root User
+
+Google Docs is an example of:
+*
+1 point
+SaaS
+IaaS
+Virtual Machine
+PaaS
+
+-SaaS
+
+For easier permission management, policies should preferably be attached to:
+*
+1 point
+The Root User
+Individual users
+Access keys
+IAM Groups
+
+-IAM Groups
+
+Which deployment model provides the MOST control?
+*
+1 point
+Private Cloud
+Public Cloud
+Community Cloud
+Hybrid Cloud
+
+-Private Cloud
+
+A Kubernetes cluster consists of:
+*
+1 point
+Access keys
+Multiple policies
+Multiple nodes
+Containers only
+
+-Multiple nodes
+
+Which command lists Kubernetes nodes?
+*
+1 point
+kubectl get buckets
+kubectl get nodes
+docker ps
+aws iam list-users
+
+-kubectl get nodes
+
+What does ARN stand for?
+*
+1 point
+AWS Resource Namespace
+Amazon Registry Name
+Amazon Resource Number
+Amazon Resource Name
+
+-Amazon Resource Name
+
+Which endpoint is commonly used with LocalStack?
+*
+1 point
+http://localhost:3389
+http://localhost:80
+http://localhost:22
+http://localhost:4566
+
+-http://localhost:4566
+
+Which is NOT an essential characteristic of cloud computing?
+*
+1 point
+Resource Pooling
+Rapid Elasticity
+Measured Service
+Manual Provisioning
+
+-Manual Provisioning
+
+Which AWS-managed policy provides full administrative access?
+*
+1 point
+RootPolicy
+AmazonS3ReadOnlyAccess
+AdministratorAccess
+IAMReadOnlyAccess
+
+-AdministratorAccess
+
+Which AWS identity has unlimited privileges?
+*
+1 point
+IAM Role
+IAM User
+IAM Group
+Root User
+
+-Root User
+
+Access keys are mainly used for:
+*
+1 point
+Docker login
+Programmatic access
+Kubernetes dashboard login
+AWS Management Console login
+
+-Programmatic access
+
+Which characteristic allows cloud resources to automatically grow or shrink?
+*
+1 point
+On-demand Self-Service
+Rapid Elasticity
+Resource Pooling
+Broad Network Access
+
+-Rapid Elasticity
+
+A node is:
+*
+1 point
+A worker machine
+A storage bucket
+A database
+A Docker image
+
+-A worker machine
+
+LocalStack is used because it:
+*
+1 point
+Simulates AWS services locally
+Replaces Docker
+Creates AWS accounts
+Installs Kubernetes
+
+-Simulates AWS services locally
+
+Which service model provides virtual machines?
+*
+1 point
+PaaS
+IaaS
+DBaaS
+SaaS
+
+-IaaS
+
+Which AWS CLI command verifies the current identity?
+*
+1 point
+aws login
+aws iam whoami
+aws sts get-caller-identity
+aws identity
+
+-aws sts get-caller-identity
+
+A collection of IAM users is called:
+*
+1 point
+S3 Bucket
+IAM Group
+IAM Role
+IAM Policy
+
+-IAM Group
+
+Which IAM identity is normally used as a temporary identity?
+*
+1 point
+Root User
+IAM Role
+IAM User
+IAM Group
+
+-IAM Role
+
+If an access key is compromised, what should be done first?
+*
+1 point
+Deactivate or rotate the key
+Delete the IAM user immediately
+Ignore it
+Restart Docker
+
+-Deactivate or rotate the key
+
+The smallest deployable unit in Kubernetes is:
+*
+1 point
+Virtual Machine
+Cluster
+Node
+Pod
+
+-Pod
+
+Which deployment model combines private and public cloud?
+*
+1 point
+Public Cloud
+Community Cloud
+Multi-cloud
+Hybrid Cloud
+
+-Hybrid Cloud
+
+Which ARN component identifies the AWS account that owns the resource?
+*
+1 point
+Service
+Account ID
+Region
+Resource ID
+
+-Account ID
