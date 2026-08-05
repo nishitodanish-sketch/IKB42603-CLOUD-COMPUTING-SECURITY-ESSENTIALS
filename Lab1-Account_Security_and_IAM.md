@@ -171,7 +171,7 @@ aws $EP iam update-access-key --user-name Analyst_YOURNAME \
 *Figure 4.1: Creation of AccessKey ID `LKIAQAAAAAAA********` and key metadata listing.*
 
 
-<img width="402" height="110" alt="3 outcome" src="https://github.com/user-attachments/assets/9703bf94-7fbc-41a5-9052-f614bebcd935" />
+<img width="402" height="110" alt="3 outcome" src="https://github.com/user-attachments/assets/a3d8b630-5f95-4dac-b557-2c83779490d1" />
 
 *Figure 4.2: Deactivation command putting access key into `Inactive` status.*
 
