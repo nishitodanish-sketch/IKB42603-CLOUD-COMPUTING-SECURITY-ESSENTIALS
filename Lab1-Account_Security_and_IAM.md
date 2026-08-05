@@ -105,10 +105,10 @@ aws $EP iam get-group --group-name Admins
 ```
 
 #### Verification Evidence & Terminal Screenshots:
-![Task 2 Admin Group and User Creation](1.task2.png)
+<img width="677" height="817" alt="1 task2" src="https://github.com/user-attachments/assets/66e2db71-9bd2-4934-81ff-16d5ebfc1361" />
 *Figure 2.1: Terminal output displaying group creation, policy attachment, user provisioning, and group assignment.*
 
-![Task 2 Get Group Membership Verification](1.outcome%20t2%20.png)
+<img width="667" height="400" alt="1 outcome t2 " src="https://github.com/user-attachments/assets/295c096c-bcea-4e73-abc3-477bbb4d9c2a" />
 *Figure 2.2: JSON output verifying that `CloudAdmin_YOURNAME` is an active member of the `Admins` IAM group.*
 
 > [!TIP]
@@ -134,7 +134,7 @@ aws $EP iam list-attached-user-policies --user-name Analyst_YOURNAME
 ```
 
 #### Verification Evidence & Terminal Screenshots:
-![Task 3 Analyst Creation and Scoped Policy Attachment](2.task3%20.png)
+<img width="717" height="511" alt="2 task3 " src="https://github.com/user-attachments/assets/367d484a-1fa8-486c-a5c2-6530ef295522" />
 *Figure 3.1: Execution log showing creation of `Analyst_YOURNAME` and attachment of `AmazonS3ReadOnlyAccess` policy.*
 
 #### Security Analysis: Blast-Radius Reduction
@@ -163,10 +163,10 @@ aws $EP iam update-access-key --user-name Analyst_YOURNAME \
 ```
 
 #### Verification Evidence & Terminal Screenshots:
-![Task 4 Create and List Access Keys](3.task4.png)
+<img width="676" height="470" alt="3 task4" src="https://github.com/user-attachments/assets/1826ef04-7ff9-4d05-9705-372cb2de10b8" />
 *Figure 4.1: Creation of AccessKey ID `LKIAQAAAAAAAJ5XLE2OL` and key metadata listing.*
 
-![Task 4 Deactivate Access Key](3.outcome.png)
+<img width="402" height="110" alt="3 outcome" src="https://github.com/user-attachments/assets/9703bf94-7fbc-41a5-9052-f614bebcd935" />
 *Figure 4.2: Deactivation command putting access key into `Inactive` status.*
 
 > [!CAUTION]
@@ -190,7 +190,7 @@ kind create cluster --name ccse-lab1
 kubectl cluster-info --context kind-ccse-lab1
 kubectl get nodes
 ```
-
+<img width="852" height="427" alt="4 section2 1" src="https://github.com/user-attachments/assets/8b1155b2-5957-46f1-adad-b561fe4d364a" />
 ![Kubernetes Cluster Provisioning](4.section2.1.png)
 *Figure B.1: Terminal output demonstrating Kind cluster `ccse-lab1` creation and active node status.*
 
@@ -209,6 +209,7 @@ kubectl create namespace prod
 kubectl get namespaces
 ```
 
+<img width="312" height="241" alt="5 section 2 2" src="https://github.com/user-attachments/assets/cf89fd8e-1932-42e0-b60f-0d7ff3d2dd02" />
 ![Kubernetes Namespaces Creation](5.section%202.2.png)
 *Figure 5.1: Creation and verification of `dev` and `prod` namespaces.*
 
@@ -234,6 +235,7 @@ kubectl create rolebinding dev-user-binding -n dev \
   --role=pod-reader --serviceaccount=dev:dev-user
 ```
 
+<img width="537" height="322" alt="6 section 2 3" src="https://github.com/user-attachments/assets/14d339a0-9f6e-405c-9a25-b4f04936caf1" />
 ![Task 6 ServiceAccount, Role, and RoleBinding Creation](6.section%202.3.png)
 *Figure 6.1: Creation of `dev-user` ServiceAccount, `pod-reader` Role, and `dev-user-binding` RoleBinding.*
 
@@ -260,6 +262,7 @@ kubectl auth can-i list pods -n prod --as=$SA
 # Output: no
 ```
 
+<img width="430" height="241" alt="7  section 2 4" src="https://github.com/user-attachments/assets/d4d3be0f-ae34-409b-b63d-da093ac16b75" />
 ![Task 7 Access Control Tests](7.%20section%202.4.png)
 *Figure 7.1: Verification results for authorization checks (`yes` / `no` / `no`).*
 
@@ -338,6 +341,7 @@ subjects:
   namespace: dev
 ```
 
+<img width="493" height="300" alt="0 3  verification command " src="https://github.com/user-attachments/assets/5d065369-05d6-44d6-b716-2cc5e304088b" />
 ![Verification Command Screenshot](0.3.%20verification%20command%20.png)
 *Figure V.1: Terminal YAML output confirming active RoleBinding structure connecting `pod-reader` Role with `dev-user` ServiceAccount.*
 
@@ -366,6 +370,7 @@ kind delete cluster --name ccse-lab1
 docker stop localstack && docker rm localstack
 ```
 
+<img width="422" height="157" alt="cleanup   teardown " src="https://github.com/user-attachments/assets/9078b7c6-f375-408d-8631-74a5fb6ae21f" />
 ![Cleanup Execution Screenshot](cleanup%20%26%20teardown%20.png)
 *Figure C.1: Terminal output verifying deletion of Kind cluster nodes and LocalStack container cleanup.*
 
