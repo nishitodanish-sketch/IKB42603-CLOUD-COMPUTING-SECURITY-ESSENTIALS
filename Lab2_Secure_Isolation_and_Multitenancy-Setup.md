@@ -36,8 +36,8 @@ EOF
 ```
 
 **Evidence — Cluster Creation:**
-<img width="516" height="326" alt="setup 1" src="https://github.com/user-attachments/assets/94bc4afb-f7b8-43a2-985c-ecb3a32dd7d0" />
 
+<img width="516" height="326" alt="setup 1" src="https://github.com/user-attachments/assets/94bc4afb-f7b8-43a2-985c-ecb3a32dd7d0" />
 
 *Figure Setup 1: Successful creation of the `ccse-lab2` Kind cluster with `disableDefaultCNI: true` and custom CIDR subnet `192.168.0.0/16`.*
 
