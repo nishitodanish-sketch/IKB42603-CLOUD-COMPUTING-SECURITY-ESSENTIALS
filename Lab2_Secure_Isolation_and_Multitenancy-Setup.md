@@ -36,8 +36,8 @@ EOF
 ```
 
 **Evidence — Cluster Creation:**
+<img width="516" height="326" alt="setup 1" src="https://github.com/user-attachments/assets/94bc4afb-f7b8-43a2-985c-ecb3a32dd7d0" />
 
-![Setup 1: Kind Cluster Creation](setup.1.png)
 
 *Figure Setup 1: Successful creation of the `ccse-lab2` Kind cluster with `disableDefaultCNI: true` and custom CIDR subnet `192.168.0.0/16`.*
 
@@ -51,8 +51,8 @@ kubectl -n kube-system rollout status daemonset/calico-node --timeout=180s
 ```
 
 **Evidence — Calico Installation & Rollout:**
+<img width="875" height="680" alt="setup 2" src="https://github.com/user-attachments/assets/1abfbe80-af06-4e32-9100-ebb8801f4c5e" />
 
-![Setup 2: Calico CNI Manifest & Rollout](setup.2.png)
 
 *Figure Setup 2: Manifest deployment for Project Calico v3.27.0 and confirmation that `calico-node` daemonset successfully rolled out.*
 
@@ -86,8 +86,8 @@ kubectl get pods,svc -n tenant-a
 ```
 
 #### Evidence & Output
+<img width="577" height="348" alt="task 1" src="https://github.com/user-attachments/assets/64baa1ac-8ad9-4e90-8d39-a7feba133bba" />
 
-![Task 1: Creating Tenants and Deploying Services](task.1.png)
 
 *Figure 1.1: Verification of namespace creation (`tenant-a`, `tenant-b`), web deployments, service exposure, and container initialization.*
 
@@ -110,7 +110,8 @@ kubectl -n tenant-a run probe --rm -it --image=curlimages/curl --restart=Never \
 
 #### Evidence & Output
 
-![Task 2: Probing Cross-Tenant Reachability (Default-Open Risk)](task.2.png)
+<img width="696" height="182" alt="task 2" src="https://github.com/user-attachments/assets/ad93feb7-2395-4324-8cd8-84b4e2655118" />
+
 
 *Figure 2.1: Obtaining `tenant-b` Service IP (`10.96.106.155`) and initiating cross-tenant probe from `tenant-a`.*
 
@@ -145,7 +146,7 @@ kubectl describe resourcequota tenant-a-quota -n tenant-a
 
 #### Evidence & Output
 
-![Task 3: ResourceQuota Configuration & Verification](task.3.png)
+<img width="516" height="387" alt="task 3" src="https://github.com/user-attachments/assets/ede77e52-100f-4cb3-b706-5f65fdb25479" />
 
 *Figure 3.1: Application and verification of `tenant-a-quota` restricting maximum CPU requests to 1 core, memory requests to 512 MiB, and total pods to 5.*
 
@@ -176,7 +177,8 @@ EOF
 
 **Evidence — Policy Creation:**
 
-![Task 4.1: Default-Deny Network Policy Creation](task4.1.png)
+<img width="501" height="213" alt="task4 1" src="https://github.com/user-attachments/assets/f279297e-e01e-4434-9784-c26f62de7411" />
+
 
 *Figure 4.1: Application of default-deny ingress NetworkPolicy to `tenant-b`.*
 
@@ -189,7 +191,8 @@ kubectl -n tenant-a run probe --rm -it --image=curlimages/curl --restart=Never \
 
 **Evidence — Blocked Probe Result:**
 
-![Task 4.2: Blocked Probe Output Post-Policy Application](task4.2.png)
+<img width="916" height="106" alt="task4 2" src="https://github.com/user-attachments/assets/ed457201-bb28-4629-b465-a6abd6d93e8e" />
+
 
 *Figure 4.2: Verification of network isolation post-NetworkPolicy application. The probe execution fails/times out and is rejected by resource quota controls when requests are omitted, confirming network access restriction.*
 
@@ -214,7 +217,7 @@ kubectl -n tenant-a create rolebinding rb --role=reader --serviceaccount=tenant-
 
 **Evidence — Secret Creation and RBAC Configuration:**
 
-![Task 5.1: Secret Creation & RBAC Setup](task5.1.png)
+<img width="706" height="225" alt="task5 1" src="https://github.com/user-attachments/assets/b330d532-e193-4043-8c52-9bdd4c3c75b2" />
 
 *Figure 5.1: Creating tenant secrets and binding `app-a` service account to read secrets within `tenant-a` only.*
 
@@ -230,7 +233,9 @@ kubectl auth can-i get secrets -n tenant-b --as=system:serviceaccount:tenant-a:a
 
 **Evidence — Auth Can-I Output:**
 
-![Task 5.2: Verification of Secret Isolation via Auth Can-I](task5.2.png)
+
+<img width="392" height="116" alt="task5 2" src="https://github.com/user-attachments/assets/bbe9be68-dcda-4e0a-a41e-03c77eaea4fb" />
+
 
 *Figure 5.2: Verification of strict RBAC isolation. `app-a` is authorized (`yes`) to read `tenant-a` secrets but denied (`no`) from accessing `tenant-b` secrets.*
 
@@ -259,7 +264,8 @@ docker run --rm -v ccse-vol:/data alpine sh -c \
 
 #### Evidence & Output
 
-![Task 6: Remanence Scan and Secure Wipe Output](task.6.png)
+<img width="667" height="323" alt="task 6" src="https://github.com/user-attachments/assets/7aa2bda4-5e51-4820-8a37-a3cd52131408" />
+
 
 *Figure 6.1: Execution showing file unlinking vs. secure zeroization using `dd if=/dev/zero` prior to unlinking.*
 
