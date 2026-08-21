@@ -1,7 +1,7 @@
 # Lab Report: Data Protection — Encryption & Key Management
 
 **Course**: IKB42603 Cloud Computing Security Essentials  
-**Lab Assignment**: Lab 3 (Weeks 5–6) — Data Protection: Encryption & Key Management  
+**Lab Assignment**: Lab 3 (Weeks 5) — Data Protection: Encryption & Key Management  
 **Focus Area**: At-Rest & In-Transit Encryption, Envelope Encryption, Cryptographic Erasure, and Log Integrity  
 **Instructor**: Prof. Dr. Shahrulniza Musa (UniKL MIIT)  
 **Environment**: Kali Linux, OpenSSL 3.x, Docker Engine, AWS CLI v2, LocalStack KMS  
@@ -61,8 +61,7 @@ diff record.txt record.dec.txt && echo 'MATCH: decryption successful'
 ```
 
 #### Evidence & Output
-
-![Task 1: Symmetric Encryption (AES-256) and Decryption Match](task1.png)
+<img width="620" height="377" alt="task1" src="https://github.com/user-attachments/assets/99a4502c-6898-4df5-8a36-c16d3ba2358b" />
 
 *Figure 1.1: Creation of `record.txt`, AES-256 encryption producing binary ciphertext `record.enc`, and successful decryption matching original content (`MATCH: decryption successful`).*
 
@@ -97,8 +96,7 @@ openssl dgst -sha256 -verify public.pem -signature record.sig record.txt
 ```
 
 #### Evidence & Output
-
-![Task 2: Asymmetric RSA Key Pair, Public Key Encryption, and Digital Signature Verification](task2.png)
+<img width="772" height="281" alt="task2" src="https://github.com/user-attachments/assets/12215514-ae3a-4da9-b269-44c5ede9d3a1" />
 
 *Figure 2.1: RSA 2048-bit key pair generation, public key encryption, private key decryption, and digital signature validation yielding `Verified OK`.*
 
@@ -132,16 +130,16 @@ curl -k https://localhost:8443/record.txt
 
 #### Evidence & Output
 
-![Task 3: Self-Signed Certificate Generation](task3.png)
+<img width="867" height="127" alt="task3" src="https://github.com/user-attachments/assets/86c71b57-5c23-4342-a364-60398aad4091" />
 
 *Figure 3.1: Generation of self-signed X.509 certificate (`cert.pem`) and private key (`key.pem`) for subject `/CN=localhost`.*
 
-![Task 3.1: NGINX HTTPS Container Launch](task3.1.png)
+<img width="735" height="273" alt="task3 1" src="https://github.com/user-attachments/assets/3c6ea5bd-94b1-4520-83f7-4138a4874f1f" />
 
 *Figure 3.2: Pulling and deploying the official `nginx` Docker image with TLS volume mounts and port mapping `8443:443`.*
 
-![Task 3.2: Connecting over TLS via curl](task3.2.png)
-
+<img width="420" height="57" alt="task3 2" src="https://github.com/user-attachments/assets/b478aea2-e775-4b19-a1de-039151572879" />
+)
 *Figure 3.3: Successfully executing `curl -k https://localhost:8443/record.txt` to retrieve sensitive data over an encrypted TLS channel.*
 
 > [!TIP]
@@ -177,12 +175,11 @@ aws $EP kms encrypt --key-id $KEY_A --plaintext "$(echo -n 'hello' | base64)" \
 ```
 
 #### Evidence & Output
-
-![Task 4: KMS Customer Master Key (CMK) Creation for Tenant A](task4.png)
+<img width="770" height="422" alt="task4" src="https://github.com/user-attachments/assets/754d1edb-2904-4e41-aac3-03df955c86ea" />
 
 *Figure 4.1: KMS `create-key` output generating KeyId `38d5051b-b68a-4f2c-843c-2e92d1eb1a37` with state `Enabled`.*
 
-![Task 4.1: Direct Payload Encryption with KMS Master Key](task4.1.png)
+<img width="907" height="128" alt="task4 1" src="https://github.com/user-attachments/assets/1dfc97a4-7c31-45f7-9043-19c79bc2c688" />
 
 *Figure 4.2: Direct API call to KMS `encrypt` using `$KEY_A`, returning base64-encoded `CiphertextBlob`.*
 
@@ -219,16 +216,15 @@ echo 'Only the KMS-wrapped data key (datakey.enc) remains.'
 ```
 
 #### Evidence & Output
-
-![Task 5: Generating Data Key and Local Payload Encryption](task5.png)
+<img width="951" height="630" alt="task5" src="https://github.com/user-attachments/assets/cfcabd71-43b8-41e3-b9d0-97c5d27098a9" />
 
 *Figure 5.1: Requesting DEK from KMS, isolating plaintext base64 and wrapped ciphertexts, binary decoding, local AES-256 payload encryption (`record.env.enc`), and inspecting file sizes.*
 
-![Task 5.1: Destroying Plaintext Data Key from Disk](task5.1.png)
+<img width="398" height="57" alt="task5 1" src="https://github.com/user-attachments/assets/192c2687-bd50-4635-ad92-c3d9cc0ceb51" />
 
 *Figure 5.2: Purging `datakey.bin`, `datakey.b64`, and `datakey.txt` from local storage.*
 
-![Task 5.2: Verifying Only KMS-Wrapped Data Key Remains](task5.2.png)
+<img width="522" height="77" alt="task5 2" src="https://github.com/user-attachments/assets/186a1f32-7c77-4b84-8d23-f3b190114294" />
 
 *Figure 5.3: Confirmation that only the wrapped DEK (`datakey.enc`) remains stored alongside encrypted data.*
 
@@ -261,7 +257,7 @@ aws $EP kms decrypt --ciphertext-blob fileb://datakey.enc 2>&1 | head -3
 
 #### Evidence & Output
 
-![Task 6: Tenant B Key Creation, Key Deletion Scheduling, and Decryption Failure](task6.png)
+<img width="932" height="767" alt="task6" src="https://github.com/user-attachments/assets/fcb53cc6-415a-4071-8e65-852ca6a47db8" />
 
 *Figure 6.1: Creation of Tenant B key (`738b2480...`), scheduling deletion of Tenant A key (`38d5051b...`), state transition to `PendingDeletion`, and subsequent failure of `kms decrypt` with `NotFoundException`.*
 
@@ -298,7 +294,7 @@ done
 
 #### Evidence & Output
 
-![Task 7: SHA-256 Hashing, Tamper Detection, and Hash Chain Execution](task7.png)
+<img width="667" height="481" alt="task7" src="https://github.com/user-attachments/assets/35760b83-49bd-459f-b3e2-e44ff1ef1b5a" />
 
 *Figure 7.1: SHA-256 fingerprinting of original vs. tampered records, followed by execution of an iterative hash-chain loop.*
 
