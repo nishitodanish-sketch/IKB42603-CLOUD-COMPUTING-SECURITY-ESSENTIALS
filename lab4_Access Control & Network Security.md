@@ -68,13 +68,15 @@ Authentication (AuthN) verifies identity claims ("who you are"). HTTP Basic Auth
 #### Task 1 Evidence Screenshots
 
 ##### Figure 1.1: Password File Generation & Nginx Configuration Setup
-![Task 1 - Password File & Nginx Configuration Setup](./task1a.1.png)
+
+<img width="682" height="422" alt="task1a 1" src="https://github.com/user-attachments/assets/2610922c-dbb7-4847-9498-1eea48fa8411" />
 
 ##### Figure 1.2: Launching the Password-Protected Nginx Container (`authsvc`)
-![Task 1 - Deploying Auth Service](./task1a.2.png)
+<img width="926" height="77" alt="task1a 2" src="https://github.com/user-attachments/assets/47739a98-1ca0-43e7-a086-407a98a5f966" />
 
 ##### Figure 1.3: Authentication Output Verification (HTTP 401 Unauthorized vs HTTP 200 Authenticated OK)
-![Task 1 - Testing AuthN: 401 Unauthorized vs 200 OK](./taks1a.3.png)
+
+<img width="617" height="125" alt="taks1a 3" src="https://github.com/user-attachments/assets/f00bfc96-c1c8-4ae9-8934-f97290645c03" />
 
 #### Results Analysis
 - **Unauthenticated Request:** Calling `curl` without credentials triggers Nginx to check `.htpasswd`. Finding no `Authorization` header present, Nginx returns HTTP status `401 Unauthorized`.
@@ -103,7 +105,8 @@ Passwords represent single-factor authentication (something you know) and are vu
 #### Task 2 Evidence Screenshot
 
 ##### Figure 2.1: TOTP Secret Enrolment, Token Generation, and Verification Shell Script Output
-![Task 2 - TOTP MFA Generation and Verification](./task2a.png)
+
+<img width="721" height="292" alt="task2a" src="https://github.com/user-attachments/assets/041125a8-0b8d-4ec1-ba69-7c1056b46ee0" />
 
 #### Results Analysis
 - In the captured execution (`task2a.png`), the shared secret `HX4HLCPUATPGBEEMEZEWAPW22FBNYWPE` was generated, and `oathtool` computed the token `885941`.
@@ -141,7 +144,8 @@ Authorization (AuthZ) determines "what an authenticated identity is permitted to
 #### Task 3 Evidence Screenshot
 
 ##### Figure 3.1: Kubernetes Kind Cluster Creation, RBAC Role/Binding Setup, and Permission Audit
-![Task 3 - Kubernetes RBAC Configuration & Can-I Verification](./task3a.png)
+
+<img width="750" height="657" alt="task3a" src="https://github.com/user-attachments/assets/667a9160-a2c8-489f-b49a-c67cd047195b" />
 
 #### Results Analysis
 - **`list pods` (`yes`):** Granted explicitly by `dev-role` (`--verb=get,list --resource=pods`).
@@ -210,10 +214,12 @@ Network segmentation applies the principle of defense-in-depth at the network la
 #### Task 4 Evidence Screenshots
 
 ##### Figure 4.1: Creation of `frontend-net` and `backend-net` Docker SDNs and Container Attachments
-![Task 4 - Creating Segmented Docker Networks and Containers](./task4b.1.png)
+
+<img width="656" height="415" alt="task4b 1" src="https://github.com/user-attachments/assets/51f7ad8a-3dce-4b3b-8216-c381530d0dd6" />
 
 ##### Figure 4.2: Verification of Network Isolation (Web-to-DB BLOCKED vs App-to-DB REACHABLE)
-![Task 4 - Verification of Network Isolation (Blocked vs Reachable)](./task4b.2.png)
+
+<img width="667" height="175" alt="task4b 2" src="https://github.com/user-attachments/assets/0ceea0f1-1570-49b1-963c-431c2f3baa96" />
 
 #### Results Analysis
 - **`web -> db` (`BLOCKED`):** `web` is on `frontend-net` while `db` is on `backend-net`. Docker's embedded DNS does not resolve `db` from `frontend-net`, preventing direct TCP packets between `web` and `db`.
@@ -240,7 +246,8 @@ A default-deny firewall posture (Zero Trust Network Access) drops all incoming t
 #### Task 5 Evidence Screenshot
 
 ##### Figure 5.1: Execution of Host `iptables` Default-Deny Ruleset inside Alpine Container
-![Task 5 - Default-Deny Firewall Ruleset in iptables](./taks5b.png)
+
+<img width="927" height="125" alt="taks5b" src="https://github.com/user-attachments/assets/f9840fee-129b-410f-8326-d684a25bc244" />
 
 #### Results Analysis
 - **Default Policy (`Chain INPUT (policy DROP)`):** Any packet not matching an explicit rule is immediately dropped.
@@ -277,13 +284,16 @@ Container hardening applies least privilege to compute runtimes by eliminating a
 #### Task 6 Evidence Screenshots
 
 ##### Figure 6.1: Hardened Container Launch, Logs Inspection, and Config Verification (`User=1000:1000`, `ReadOnly=true`)
-![Task 6 - Hardened Container Execution and Inspect Verification](./task6b.1.png)
+
+<img width="935" height="585" alt="task6b 1" src="https://github.com/user-attachments/assets/d28f6502-1729-4108-9803-a594cea616c5" />
 
 ##### Figure 6.2: Trivy Container Vulnerability Scanner Initialization & Database Download
-![Task 6 - Trivy Scan Database Download](./task6b.2.png)
+
+<img width="927" height="127" alt="task6b 2" src="https://github.com/user-attachments/assets/473514d9-268a-4e7d-a8d5-bdb022d3fd6a" />
 
 ##### Figure 6.3: Trivy Image Vulnerability Scan Results Summary (`nginx:alpine`)
-![Task 6 - Trivy Scan Findings Output](./task6b.3outcome.png)
+
+<img width="942" height="370" alt="task6b 3outcome" src="https://github.com/user-attachments/assets/0eecf088-b865-4061-9770-3030d512e124" />
 
 #### Hardening Flags Explained
 
