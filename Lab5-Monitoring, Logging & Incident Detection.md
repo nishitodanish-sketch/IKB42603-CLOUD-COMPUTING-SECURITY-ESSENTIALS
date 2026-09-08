@@ -38,7 +38,8 @@ aws $EP logs create-log-stream --log-group-name /ccse/app --log-stream-name auth
 ```
 
 ### Evidence Screenshot — Environment Setup
-![LocalStack Setup](setup%20local%20.png)
+
+<img width="925" height="502" alt="setup local " src="https://github.com/user-attachments/assets/8c49c52f-4474-42fc-b035-f884e991d014" />
 
 ---
 
@@ -63,7 +64,8 @@ cat auth.log
 ```
 
 #### Evidence Screenshot — Task 1
-![Task 1 - Generate Application Logs](task.1.png)
+
+<img width="582" height="307" alt="task 1" src="https://github.com/user-attachments/assets/cc69571e-6365-4c4c-819e-a7665ebfb2d1" />
 
 ---
 
@@ -90,7 +92,8 @@ aws $EP logs get-log-events --log-group-name /ccse/app --log-stream-name auth \
 ```
 
 #### Evidence Screenshot — Task 2
-![Task 2 - Centralise Logs](task.2.png)
+
+<img width="935" height="242" alt="task 2" src="https://github.com/user-attachments/assets/0192b6c5-2458-4726-a499-c5b9e19f0ac3" />
 
 ---
 
@@ -110,7 +113,8 @@ grep LOGIN_FAIL auth.log | awk '{print $4, $5}' | sort | uniq -c
 *Analysis:* The query identified exactly 4 failed login attempts for user `admin` originating from source IP `203.0.113.9`.
 
 #### Evidence Screenshot — Task 3
-![Task 3 - Query Security Activity](task.3.png)
+
+<img width="562" height="67" alt="task 3" src="https://github.com/user-attachments/assets/60167e1f-f870-4276-9868-2f0e6772003f" />
 
 ---
 
@@ -149,7 +153,8 @@ sed 's/500MB/5MB/' auth.log > auth.tampered
 When recomputing the hash chain on `auth.tampered`, the final hash deviates completely from `ababa787b4bf524d9daddca8c48e4909fc105769a6f17574f42cefe8f81233cf`, mathematically proving that tampering occurred.
 
 #### Evidence Screenshot — Task 4
-![Task 4 - Tamper-Proof Hash-Chained Logs](task.4.png)
+
+<img width="931" height="427" alt="task 4" src="https://github.com/user-attachments/assets/0f3796ce-5254-4270-97a7-859901c8a17d" />
 
 ---
 
@@ -177,7 +182,8 @@ ALERT: probable brute-force -> compromise -> data exfiltration
 ```
 
 #### Evidence Screenshot — Task 5
-![Task 5 - Detect Incident Correlation](task.5.png)
+
+<img width="642" height="232" alt="task 5" src="https://github.com/user-attachments/assets/52d7a483-0c61-4beb-ba08-9f32ec3b0e41" />
 
 ---
 
@@ -208,7 +214,8 @@ cat evidence.sha256
 ```
 
 #### Evidence Screenshot — Task 6
-![Task 6 - Incident Response](task.6.png)
+
+<img width="932" height="191" alt="task 6" src="https://github.com/user-attachments/assets/4642c5e2-b666-4f92-9bcd-6205897919c8" />
 
 ---
 
