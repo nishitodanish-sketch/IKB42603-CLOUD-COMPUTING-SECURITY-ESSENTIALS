@@ -57,7 +57,9 @@ aws $EP sts get-caller-identity
 ### Setup Execution Evidence
 The container started successfully, listening on port `4566`. The `sts get-caller-identity` verification verified execution under account ID `000000000000` with the root ARN `arn:aws:iam::000000000000:root`.
 
-![Environment Setup Evidence](./task_setup.png)
+
+<img width="932" height="617" alt="task_setup" src="https://github.com/user-attachments/assets/27f2dc2e-d874-4934-a52b-0f11c5916426" />
+
 *Figure 1: Initialization of LocalStack with `ENFORCE_IAM=1` and AWS STS identity verification.*
 
 ---
@@ -109,10 +111,14 @@ In object storage, prefixes like `confidential/` or `public/` are not physical d
 
 #### Task 1 Execution Evidence
 
-![Task 1 - Bucket Creation and Initial Upload](./task1.1.png)
+
+<img width="686" height="641" alt="task1 1" src="https://github.com/user-attachments/assets/c00ddeff-ae70-495e-ac9a-40ab78fdc4b4" />
+
 *Figure 2: Bucket `miit-patient-records-8048` creation and initial object upload with classification tagging.*
 
-![Task 1 - Object Inventory and Verification](./task1.2.png)
+
+<img width="432" height="616" alt="task1 2" src="https://github.com/user-attachments/assets/1750994f-c73e-40a7-b82a-4a0ab4cfef54" />
+
 *Figure 3: Complete object inventory displayed in tabular format showing keys and byte sizes.*
 
 ---
@@ -156,7 +162,8 @@ The anonymous `curl` request succeeded immediately with an **HTTP 200** status c
 
 #### Task 2 Execution Evidence
 
-![Task 2 - Public Bucket Policy and Anonymous Data Exfiltration](./task2%20.png)
+<img width="705" height="617" alt="task2 " src="https://github.com/user-attachments/assets/2e8517f2-431d-43e7-bddb-1153724ff84b" />
+
 *Figure 4: Attachment of public wildcard policy and exfiltration of confidential patient data via unauthenticated HTTP curl.*
 
 ---
@@ -217,13 +224,17 @@ aws $EP s3api get-bucket-policy --bucket "$BUCKET" --query Policy --output text
 
 #### Task 3 Execution Evidence
 
-![Task 3 - Policy Deletion and BPA Configuration](./task3.1.png)
+
+<img width="922" height="652" alt="task3 1" src="https://github.com/user-attachments/assets/8d8228bf-41a4-4556-beda-7855aec1392c" />
+
 *Figure 5: Policy deletion, Block Public Access configuration showing all four flags set to `true`.*
 
-![Task 3 - BPA Testing and Least Privilege Creation](./task3.2.png)
+<img width="592" height="655" alt="task3 2" src="https://github.com/user-attachments/assets/cbf991f8-20ae-4996-afe6-3f4e507f9f6a" />
+
 *Figure 6: Guardrail verification and creation of least-privilege resource policy.*
 
-![Task 3 - Least Privilege Policy Verification](./task3.3.png)
+<img width="545" height="282" alt="task3 3" src="https://github.com/user-attachments/assets/7b7654da-05ba-456d-a895-a058400d8bdf" />
+
 *Figure 7: Active least-privilege policy output scoped exclusively to `internal/*`.*
 
 ---
@@ -315,19 +326,24 @@ AWS_PROFILE=analyst aws $EP s3api get-object \
 
 #### Task 4 Execution Evidence
 
-![Task 4 - IAM User and S3ReadAll Policy Verification](./task4.1.png)
+<img width="927" height="702" alt="task4 1" src="https://github.com/user-attachments/assets/d2d3adb2-472c-406e-8d68-b9fec397a614" />
+
 *Figure 8: Verification of `ENFORCE_IAM=1` environment and `DataAnalyst` IAM user policy.*
 
-![Task 4 - Access Key Generation and Profile Setup](./task4.2.png)
+<img width="805" height="742" alt="task4 2" src="https://github.com/user-attachments/assets/361855ab-4b6d-43aa-a3c9-3b2fdcef2504" />
+
 *Figure 9: Generation of analyst access keys and configuration of the `analyst` profile.*
 
-![Task 4 - Deny Resource Policy Definition](./task4.3.png)
+<img width="620" height="792" alt="task4 3" src="https://github.com/user-attachments/assets/f20c0875-11c4-4724-a026-1ed1f79e950c" />
+
 *Figure 10: Definition of `deny-confidential.json` bucket resource policy.*
 
-![Task 4 - Resource Policy Attachment](./task4.4.png)
+<img width="592" height="547" alt="task4 4" src="https://github.com/user-attachments/assets/3aa28ea6-521f-4c51-ad9b-55eecba3126c" />
+
 *Figure 11: Application and verification of the resource policy with explicit Deny.*
 
-![Task 4 - Policy Evaluation Tests](./task4.5.png)
+<img width="432" height="590" alt="task4 5" src="https://github.com/user-attachments/assets/7a7231f2-e5ca-4b44-9e5f-49240ccb62da" />
+
 *Figure 12: Testing analyst access against internal and confidential prefixes.*
 
 ---
@@ -383,13 +399,16 @@ The configuration sets `"BucketKeyEnabled": true`. Under traditional SSE-KMS, ev
 
 #### Task 5 Execution Evidence
 
-![Task 5 - KMS Key Creation and Encryption Config](./task5.1.png)
+<img width="522" height="757" alt="task5 1" src="https://github.com/user-attachments/assets/bdde8cb7-f2a9-4451-b209-978f50e75bfc" />
+
 *Figure 13: Generation of KMS CMK `eaad2c50-056f-48ca-aad2-93828a60536b` and encryption JSON configuration.*
 
-![Task 5 - Bucket Encryption Verification](./task5.2.png)
+<img width="616" height="422" alt="task5 2" src="https://github.com/user-attachments/assets/0424dc51-a427-48bb-a0c2-852a0620ed32" />
+
 *Figure 14: Verification of active bucket encryption rules enforcing `aws:kms` and `BucketKeyEnabled: true`.*
 
-![Task 5 - Transparent Encryption Verification via Head-Object](./task5.3.png)
+<img width="785" height="486" alt="task5 3" src="https://github.com/user-attachments/assets/b551f62a-1f46-4d8a-a9c5-89001622ba1e" />
+
 *Figure 15: `head-object` output verifying automatic encryption under `aws:kms` with the designated CMK.*
 
 ---
@@ -468,16 +487,20 @@ aws $EP s3api delete-bucket-policy --bucket "$BUCKET"
 
 #### Task 6 Execution Evidence
 
-![Task 6 - Presigned URL Generation and Expiration Testing](./task6.1.png)
+<img width="921" height="426" alt="task6 1" src="https://github.com/user-attachments/assets/58044ee3-e1fd-43ca-860d-3f8237d87222" />
+
 *Figure 16: Generation and execution of time-bounded Presigned URL.*
 
-![Task 6 - Secure Transport Policy Definition](./task6.2.png)
+<img width="396" height="677" alt="task6 2" src="https://github.com/user-attachments/assets/97bc450a-4c1b-47e7-b8e0-308112ce66d9" />
+
 *Figure 17: Configuration of the TLS enforcement policy containing `aws:SecureTransport: "false"`.*
 
-![Task 6 - Bucket Operations Under Policy](./task6.3.png)
+<img width="487" height="791" alt="task6 3" src="https://github.com/user-attachments/assets/3af232a5-32d8-4f37-91a3-8169a1058659" />
+
 *Figure 18: Bucket inspection and interaction under the transport policy.*
 
-![Task 6 - Bucket Policy Deletion and Recovery](./task6.4.png)
+<img width="926" height="596" alt="task6 4" src="https://github.com/user-attachments/assets/b497cae4-4652-4e96-a9c0-78aa75d924d3" />
+
 *Figure 19: Removal of the lockout policy and verification of recovery.*
 
 ---
@@ -539,7 +562,8 @@ Under statutory data privacy frameworks like Malaysia's Personal Data Protection
 
 #### Task 7 Execution Evidence
 
-![Task 7 - Versioning and Object Version Stack](./task7.png)
+<img width="582" height="755" alt="task7" src="https://github.com/user-attachments/assets/03a16bb9-34e4-4f9e-bf7c-3d8ecc74fc66" />
+
 *Figure 20: Versioning enabled, object revision uploads, and inspection of version stack showing latest (`AaCQyp_M9dujks...`), second revision, and original null version.*
 
 ---
@@ -607,7 +631,8 @@ When the CMK is disabled or deleted, any decrypt operation (`kms:Decrypt`) fails
 
 #### Task 8 Execution Evidence
 
-![Task 8 - Lifecycle Configuration and Cryptographic Erasure](./task8.png)
+<img width="561" height="797" alt="task8" src="https://github.com/user-attachments/assets/1e4a8ef5-76d2-411c-86df-f429581b3d57" />
+
 *Figure 21: Application and verification of automated lifecycle retention rules in S3.*
 
 ---
